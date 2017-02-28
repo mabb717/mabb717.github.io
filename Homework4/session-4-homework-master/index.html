@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework</title>
+	<script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+	<script src="/js/navitems.js"></script>
+	<link rel="stylesheet" href="/css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body ng-controller="NavController">
+
+	<header>
+		<h1>Not on the app store!</h1>
+	</header>
+
+	<nav id="main">
+		<a class="logo" href="#0"><img ng-src="/img/logo.svg" /></a>
+		<ul id="nav-links">
+			<li ng-repeat="navItem in navItems">
+				<a href=" {{ navItem.link }} ">{{ navItem.label }}</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="site-wrap"">
+
+		<p class="ab"><input ng-model="searchFor" placeholder="Filter beers" size="30"/></p>
+
+		<div class="beer" ng-repeat="beer in beers | filter:searchFor | orderBy:'name' ">
+			<img ng-src = "{{ beer.image_url }}">
+			<div class="beer_header">
+				<h2>{{ beer.name }}</h2>
+				<h3>{{ beer.tagline }}</h3>
+			</div>
+			<p>{{ beer.description }}</p>
+		</div>
+
+	</div>
+	<script src="/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
